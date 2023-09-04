@@ -27,3 +27,23 @@ for (let i = 0; i < number.length; i++) {
     });
 
 }
+
+for (let i = 0; i < operator.length; i++){
+
+    operator[i].addEventListener('click', function(e){
+
+        let currentString = input.innerHTML;
+        let lastChar = currentString[currentString.length - 1];
+
+        if (lastChar === '+' || lastChar === '-' || lastChar === '×' || lastChar === '÷'){
+            let newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
+            input.innerHTML = newString;
+        } else if (currentString.length == 0){
+            console.log("Podaj najpierw liczbe, nie zaczynaj od operatora :>")
+        } else {
+            input.innerHTML += e.target.innerHTML;
+        }
+
+    });
+
+}
